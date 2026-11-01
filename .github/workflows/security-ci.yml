@@ -39,7 +39,7 @@ jobs:
     container:
       image: semgrep/semgrep:latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
       - name: Semgrep scan -> SARIF
         # Produce SARIF always; do NOT fail here so the SARIF can upload.
@@ -53,7 +53,7 @@ jobs:
 
       - name: Upload Semgrep SARIF
         if: always()              # upload even if a later step fails
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@3c3833e0f8c1c83d449a7478aa59c036a9165498
         with:
           sarif_file: semgrep.sarif
           category: semgrep
@@ -70,7 +70,7 @@ jobs:
     name: SCA + IaC (Trivy)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
       # --- Filesystem / dependency (SCA) scan -> SARIF (report, no fail) ---
       - name: Trivy fs (SCA) -> SARIF
@@ -85,7 +85,7 @@ jobs:
 
       - name: Upload Trivy fs SARIF
         if: always()
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@3c3833e0f8c1c83d449a7478aa59c036a9165498
         with:
           sarif_file: trivy-fs.sarif
           category: trivy-fs
@@ -102,7 +102,7 @@ jobs:
 
       - name: Upload Trivy config SARIF
         if: always()
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@3c3833e0f8c1c83d449a7478aa59c036a9165498
         with:
           sarif_file: trivy-config.sarif
           category: trivy-config
@@ -142,7 +142,7 @@ jobs:
     name: Secrets (Gitleaks)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
           fetch-depth: 0          # full history so history-buried secrets are caught
 
@@ -155,7 +155,7 @@ jobs:
 
       - name: Upload Gitleaks SARIF
         if: always()
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@3c3833e0f8c1c83d449a7478aa59c036a9165498
         with:
           sarif_file: gitleaks.sarif
           category: gitleaks
