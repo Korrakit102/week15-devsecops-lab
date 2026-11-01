@@ -3,3 +3,5 @@
 # Exceptions limited to two verified worksheet.md findings.
 5d8ee89cce2b42ecdecebf41c89e681f47dffb1f:worksheet.md:curl-auth-header:59
 5d8ee89cce2b42ecdecebf41c89e681f47dffb1f:worksheet.md:curl-auth-header:72
+# Instructor-provided curl example in README-pipeline.md.
+5d8ee89cce2b42ecdecebf41c89e681f47dffb1f:README-pipeline.md:curl-auth-header:91
