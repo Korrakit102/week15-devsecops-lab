@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 .env
 .npm-cache/
+semgrep-results.json
+semgrep-results.json
+/security-ci.yml
